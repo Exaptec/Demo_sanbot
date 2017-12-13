@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.qihancloud.librarydemo">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity">
+            <meta-data
+                android:name="FORBID_PIR"
+                android:value="true" />
+            <meta-data
+                android:name="RECOGNIZE_MODE"
+                android:value="1" />
+        </activity>
+        <activity
+            android:name=".VideoActivity"
+            android:exported="true"
+            android:hardwareAccelerated="true">
+            <meta-data
+                android:name="config_record"
+                android:value="false" />
+        </activity>
+
+        <!--功能菜单-->
+        <activity android:name=".HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--语音控制-->
+        <activity android:name=".SpeechControlActivity">
+            <meta-data
+                android:name="RECOGNIZE_MODE"
+                android:value="1" />
+        </activity>
+
+        <!--硬件控制-->
+        <activity android:name=".HardwareControlActivity" />
+        <!--Ir sensor-->
+        <activity android:name=".IRSensorActivity" />
+        <!--系统管理-->
+        <activity android:name=".SystemControlActivity" />
+        <!--头部控制-->
+        <activity android:name=".HeadControlActivity" />
+        <!--手部控制-->
+        <activity android:name=".HandControlActivity" />
+        <!--轮子控制-->
+        <activity android:name=".WheelControlActivity" />
+        <!--媒体控制-->
+        <activity
+            android:name=".MediaControlActivity"
+            android:exported="true"
+            android:hardwareAccelerated="true" />
+        <!--投影仪控制-->
+        <activity android:name=".ProjectorControlActivity" />
+        <!--模块化控制-->
+        <activity android:name=".ModularityControlActivity" />
+
+        <activity android:name=".FaceRecognizeActivity" />
+
+        <service
+            android:name=".MainService"
+            android:exported="true" />
+        <provider
+            android:name="com.qihancloud.opensdk.utils.GrammarProvider"
+            android:authorities="com.qihancloud.librarydemo.grammar"
+            android:exported="true" />
+    </application>
+
+</manifest>
